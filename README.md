@@ -5,7 +5,8 @@ Analiziramo različne algoritme za iskanje ničel polinomov in njihovo uporabo v
 Za uporab je potreben python3 in
   - numpy
   - scipy
-  - matplotlib.
+  - matplotlib
+  - pygmentize.
 
 Izvorna koda je na voljo pod /src
 

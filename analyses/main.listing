@@ -1,0 +1,9 @@
+polynomial_coeffcient = np.polynomial.polynomial.polyfromroots([-3,-8,-2,-1,2,4])
+
+companion_matrix = np.polynomial.polynomial.polycompanion(polynomial_coeffcient) #ustavri matriko (potrebuje ravno obraten red koeficientov)
+polynomial_coeffcient.reverse()
+
+polynomial = np.poly1d(polynomial_coeffcient) #ustvari polinom
+
+
+eval, evec = np.linalg.eig(companion_matrix) #poišči ničle, prvi seznam lastne vrednosti drugi lastni vekotrji

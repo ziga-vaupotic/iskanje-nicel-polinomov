@@ -1,0 +1,54 @@
+\begin{thebibliography}{10}
+
+\bibitem{quadiblocFloatingPointFormats}
+{F}loating-{P}oint {F}ormats --- quadibloc.com.
+\newblock \url{http://www.quadibloc.com/comp/cp0201.htm}.
+\newblock [Dostopano 10-09-2023].
+
+\bibitem{8766229}
+Ieee standard for floating-point arithmetic.
+\newblock {\em IEEE Std 754-2019 (Revision of IEEE 754-2008)\/} (2019), 1--84.
+
+\bibitem{Bohte_1993}
+{\sc Bohte, Z.}
+\newblock {\em Numerično reševanje nelinearnih enačb}, vol.~34.
+\newblock Društvo matematikov, fizikov in astronomov Slovenije, 1993.
+\newblock 1.000 izv.
+
+\bibitem{lagguerrmetoda}
+{\sc Cameron, T.}
+\newblock An effective implementation of a modified laguerre method for the
+  roots of a polynomial.
+\newblock {\em Numerical Algorithms 82\/} (11 2019).
+
+\bibitem{Kulpa1997}
+{\sc Kulpa, W.}
+\newblock The poincare-miranda theorem.
+\newblock {\em The American Mathematical Monthly 104}, 6 (June 1997), 545.
+
+\bibitem{Plestenjak2010}
+{\sc Plestenjak, B.}
+\newblock {\em Numerične Metode}.
+\newblock Fakulteta za Matematiko in Fiziko, 2010.
+
+\bibitem{Plestenjak2021}
+{\sc Plestenjak, B.}
+\newblock {\em Iterativne numerične metode v linearni algebri}.
+\newblock Fakulteta za Matematiko in Fiziko, 2021.
+
+\bibitem{Ramond_2022}
+{\sc Ramond, P.}
+\newblock The abel{\textendash}ruffini theorem: Complex but not complicated.
+\newblock {\em The American Mathematical Monthly 129}, 3 (mar 2022), 231--245.
+
+\bibitem{sparsem}
+{\sc Scott, J., and Tůma, M.}
+\newblock {\em An Introduction to Sparse Matrices}.
+\newblock 01 2023, pp.~1--18.
+
+\bibitem{Ridgway2011}
+{\sc Scott, L.~R.}
+\newblock {\em Numerical Analysis}.
+\newblock Princeton University Press, 2011.
+
+\end{thebibliography}

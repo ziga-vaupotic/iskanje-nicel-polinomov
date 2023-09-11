@@ -1,0 +1,25 @@
+\chapter{Uvod}
+V računalništvu in informatiki se velikokrat pojavljajo problemi, ki temeljijo na elementarnih matematičnih funkcijah. Najpogosteje se pojavljajo polinomske funkcije. Redno se srečujemo tudi s problemi, kjer moramo iskati ničle teh polinomskih funkciji. 
+
+\section{Namen}
+Cilj seminarske naloge je opredeliti konvergenco in časovno zahtevnost nekaterih najpogostejših algoritmov za iskanje ničel. Rezultati bodo uporabljeni predvsem za nadaljnjo lastno uporabo. Glavni \textbf{namen} naloge je vzbuditi zanimanje za numerično analizo in uporaba le te v informacijskih tehnologijah. Sicer se redko direktno srečamo s problemom iskanja ničel polinomov v programiranju, a se velikokrat srečamo z optimizacijskimi problemi, ki temeljijo na metodah za iskanje ničel funkciji. Sicer funkcije niso vedno polinomske, a osnovne metode kot so Newton-Raphsovnova, biskecija, ... ostajajo enake. Seveda pa nesemo pozabiti, da lahko funkcije po Taylorjevem izreku aproksimiramo s polinomi. Posledično se velikokrat vrnemo nazaj na metode iskanja ničel polinomov.
+
+\section{Metodologija}
+Analiza bo temeljila na pregledu že obstoječe literature. Posvetili se bomo predvsem iskanju ničel polinomov v $\R$ in $\R^n$, seveda pa obstajajo tudi metode za iskanje ničel polinomov v $\mathbb{C}$. V računalništvu imajo kompleksni polinomi vlogo predvsem v teoriji šifriranja in numerični analizi. Vsi algoritmi bodo spisani in implementirani v programskem jeziku Python in bodo dodani kot priloga. Za matematično podlogo bomo uporabili knjižnici \texttt{numpy} in \texttt{scipy}. Za risanje grafov in figur bomo uporabili \texttt{matplotlib}. Algoritmi bodo v nalogi zapisani v obliki pseudo-algoritmeskega zapisa. Izogibali s bomo zapisu nepotrebnih matematičnih izrekov, ter predstavil algoritme tudi grafično, kjer bo to mogoče. Večina programov oz. skript bo časovno analizirana na računalniku s procesorjem \textit{AMD Ryzen 7 2700x}, medtem ko bodo nekateri zahtevnejši algoritmi izvedeni na procesorju \textit{AMD EPYC GENOA 9684X}.
+
+\newpage
+\section{Pibližki in napake}
+V vseh računalniških algoritmih se pojavljajo napake. Napake se pojavljajo tudi v obliki natančnosti zapisa števil z plavajočo vejico. Po navadi se v obravnavanih algoritmih uporablja podatkovni tip \texttt{double}. Tovrstni podatkovni tip zavzame 8 bajtov.\todo{Dodaj sliko oz. diagram} Prvih 12 bitov predstavlja prolog sestavljen iz predznaka (1 bit) in eksponenta (sledečih 11 bitov). Matisa predstavlja 52 bitov. Natančnost lahko izračunamo z izrazom za plavajočo vejico \cite{Ridgway2011}
+\begin{align}
+    fl(x) = m \cdot b^{e-1023}
+\end{align}
+$m$ predstavlja mantiso, torej $0.m_1m_2...m_n$, $b$ predstavlja bazo (ponavadi binarno),  $m_n$ so števke predstavljene v bazne zapisu (posledično so v mejah od 0 do $b-1$), $e$ eksponent, ki je v mejah $L \le e \le U$. Absolutno in relativno napako izračunamo z izrazoma
+\[
+ E_{abs} = |x - fl(x)| \qquad E_{rel} = \frac{|x - fl(x)|}{x}
+\]
+
+V našem primeru imamo na razpolago 11 bitov za zapis eksponenta, torej je zgornja meja $\sum_{i=0}^{10} 2^i = 2047$. To bi bilo sicer res, vendar sta eksponenta $00000000000$ in $11111111111$ \cite{8766229} rezervirana. Tako je največji možen eksponent $11111111110$ oziroma $\sum_{i=1}^{10} 2^i = 2046$. Zanima nas predvsem najmanjši možen eksponent, ki je posledično enak $00000000001$ oz. 1. Če vstavimo navedene podatke v izraz dobimo najmanjšo možno število in posledično največjo možno napako za zapis ničle
+\begin{align}
+    fl(x) = 0,0\overbrace{...}^{\text{50 ničel}}1\cdot 2^{1-1023} \approx 10^{-308}.
+\end{align}
+Sicer lahko zapišemo še nižja števila, vendar v tem primeru več nimamo popolne natančnosti decimalk \cite{quadiblocFloatingPointFormats}. Najmanjša možna napaka je enaka najmanjšemu možnem zapisu. Ta napaka velja za vse nadaljnje algoritme.

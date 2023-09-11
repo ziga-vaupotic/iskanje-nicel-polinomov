@@ -1,0 +1,47 @@
+\appendix
+
+\chapter{Algoritmi}
+\section*{Biskecija}
+\begin{mintedbox}{python}
+polynomial = np.poly1d([4/9, 16, -1/2, 411/10, 3/2, 0, 7, 0, 2]) #ustvari polinom
+
+def bisection(interval, eps):
+    a = (interval[0] + interval[1]) / 2
+    while abs(polynomial(a)) < eps:
+        a = (interval[0] + interval[1]) / 2
+        
+        if(polynomial(a) * polynomial(interval[0]) < 0):
+            interval[1] = a
+        else:
+            interval[0] = a
+    return a
+
+\end{mintedbox}
+
+\section*{Newtonova metoda}
+
+\begin{mintedbox}{python}
+polynomial_coeffcient = np.polynomial.polynomial.polyfromroots([-3,-8,-2,-1,2,4])
+
+
+polynomial = np.poly1d(np.flip(polynomial_coeffcient)) #ustvari polinom
+polynomial_odvod = np.polyder(polynomial) #analitičen odvod polinoma
+
+def newton(xr, eps):
+    while abs(polynomial(xr)) > eps:
+        xr = xr - polynomial(xr) / polynomial_odvod(xr)
+    return xr
+\end{mintedbox}
+\section*{Metoda pridružene matrike}
+
+\begin{mintedbox}{python}
+polynomial_coeffcient = np.polynomial.polynomial.polyfromroots([-3,-8,-2,-1,2,4])
+
+companion_matrix = np.polynomial.polynomial.polycompanion(polynomial_coeffcient) #ustavri matriko (potrebuje ravno obraten red koeficientov)
+polynomial_coeffcient.reverse()
+
+polynomial = np.poly1d(polynomial_coeffcient) #ustvari polinom
+
+
+eval, evec = np.linalg.eig(companion_matrix) #poišči ničle, prvi seznam lastne vrednosti drugi lastni vekotrji
+\end{mintedbox}
