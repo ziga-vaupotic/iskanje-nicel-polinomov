@@ -36,7 +36,7 @@ Algoritem vsako iteracijo skrči interval $(a_1, a_2)$, tako da obdrži pogoj $f
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{../img/bisection.png}
+    \includegraphics[width=1\textwidth]{img/bisection.png}
     \caption{Potek algoritma biskecije}
     \label{fig:bisection}
 \end{figure}
@@ -94,7 +94,7 @@ Preprosto algoritem ovrednoti nov zamik iteracije glede na ničlo tangente prej�
     Najdi ničlo polinoma $p(x) = (x+3)(x+2)(x+8)(x+1)(x-2)(x-4)$
     \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{../img/newton.png}
+    \includegraphics[width=1\textwidth]{img/newton.png}
     \caption{Potek algoritma Newtonove metode}
     \label{fig:newtons}
 \end{figure}
@@ -153,7 +153,7 @@ Iskanje lastnih vrednosti matrike lahko opravimo na tako razpršenih kot gostih 
     Poišči vse ničle polnoma podanega s predpisom $p(x) = \sum_{n=0}^{24} (-1)^n \frac{x^{2n+1}}{(2n+1)!}$ s pomočjo pridružene matrike. Izvorna koda je v prilogi.
     \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{../img/eigenvalue.png}
+    \includegraphics[width=1\textwidth]{img/eigenvalue.png}
     \caption{Potek algoritma s pridruženo matriko}
     \label{fig:companionmatrix}
 \end{figure}
@@ -246,19 +246,19 @@ Upoštevati moramo, da morajo biti začetni $x_r$ paroma različni sicer algorit
     \EndWhile
     \end{algorithmic}
     \end{algorithm}
-    Kot že omenjeno obstajajo tudi druge implimentacije. Najbolj poznana implimentacija je definitvno kvadratna implimetacija. V imenovalcu v tej metodi zapišem
+    Kot že omenjeno obstajajo tudi druge izpeljave. Najbolj poznana formulacija je definitivno kvadratna implementacija. V imenovalcu te metode zapišem
     \begin{equation}
         \Delta x^{r+1}_n = \frac{-p(x_n)}{\displaystyle \prod_{i=1}^{n-1} (x^r_{n} - x^{r+1}_i)  \prod_{i=n+1}^{k} (x^r_n - x^r_i)} 
     \end{equation}
-    Tovrstna implimetacija izboljša konvergenco. Mi se bomo scier držali orginalne implimetacije, ker ima kvadratna metoda svoje probleme. Problemi se izražajo predvsem v obliki hitrih divergence ničel z slabim začetnim približkom.
+    Tovrstna izpeljava izboljša konvergenco. Mi se bomo sicer držali originalne implementacije, ker ima kvadratna metoda svoje probleme. Problemi se izražajo predvsem v obliki hitrih divergence ničel z slabim začetnim približkom.
     \newpage
 \begin{primer}
-    Poišči vse ničle polnoma poljubnega polinoma s Durand Kernerjevo metodo. Izvorna koda je v prilogi.
+    Poišči vse ničle polinoma poljubnega polinoma s Durand Kernerjevo metodo. Izvorna koda je v prilogi.
     \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{../img/durand.png}
+    \includegraphics[width=1\textwidth]{img/durand.png}
     \caption{Potek Durand-Kernerjevega algoritma}
     \label{fig:durand}
 \end{figure}
-$\Delta x$ predtsavlja razdaljo od ničle do prvotnega približka. Opazimo, da metoda deluje. Pričakovano potrebuje metoda več iteraciji gelde na odaljenost pvotnega približka od ničle. Zanimivo je mogoče dejstvo, da če so prvotni približki preveč skupaj algoritem zelo hitro divergira. Obenem hitro divergira tudi če niso prvotni približki dobro sortirani. Več o sami konvergenci bomo povedali v 4. poglavju.
+$\Delta x$ predstavlja razdaljo od ničle do prvotnega približka. Opazimo, da metoda deluje. Pričakovano potrebuje metoda več iteraciji glede na oddaljenost prvotnega približka od ničle. Zanimivo je mogoče dejstvo, da če so prvotni približki preveč skupaj algoritem zelo hitro divergira. Obenem hitro divergira tudi če prvotni približki niso dobro sortirani. Več o sami konvergenci bomo povedali v 4. poglavju.
 \end{primer}

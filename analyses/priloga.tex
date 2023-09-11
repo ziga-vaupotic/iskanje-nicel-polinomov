@@ -1,7 +1,7 @@
 \appendix
 
 \chapter{Algoritmi}
-\section*{Biskecija}
+\section{Bisekcija}
 \begin{mintedbox}{python}
 polynomial = np.poly1d([4/9, 16, -1/2, 411/10, 3/2, 0, 7, 0, 2]) #ustvari polinom
 
@@ -18,7 +18,7 @@ def bisection(interval, eps):
 
 \end{mintedbox}
 
-\section*{Newtonova metoda}
+\section{Newtonov algoritem}
 
 \begin{mintedbox}{python}
 polynomial_coeffcient = np.polynomial.polynomial.polyfromroots([-3,-8,-2,-1,2,4])
@@ -32,7 +32,7 @@ def newton(xr, eps):
         xr = xr - polynomial(xr) / polynomial_odvod(xr)
     return xr
 \end{mintedbox}
-\section*{Metoda pridružene matrike}
+\section*{Algoritem pridružene matrike}
 
 \begin{mintedbox}{python}
 polynomial_coeffcient = np.polynomial.polynomial.polyfromroots([-3,-8,-2,-1,2,4])
@@ -44,4 +44,56 @@ polynomial = np.poly1d(polynomial_coeffcient) #ustvari polinom
 
 
 eval, evec = np.linalg.eig(companion_matrix) #poišči ničle, prvi seznam lastne vrednosti drugi lastni vekotrji
+\end{mintedbox}
+
+\section{Laguerreov algoritem}
+
+\begin{mintedbox}{python}
+    polynomial_coeffcient = np.polynomial.polynomial.polyfromroots([-3,-8,-2,-1,2,4])
+
+
+polynomial = np.poly1d(np.flip(polynomial_coeffcient)) #ustvari polinom
+polynomial_odvod = np.polyder(polynomial) #analitičen odvod polinoma
+polynomial_odvod_2 = np.polyder(polynomial, 2)
+
+
+
+def laguerre(xr, eps):
+    while abs(polynomial(xr)) > eps:
+
+        s1 =  polynomial_odvod(xr)/polynomial(xr)
+        s2 = (polynomial_odvod(xr)**2 - polynomial(xr) * polynomial_odvod_2(xr))/(polynomial(xr)**2)
+        n = len(polynomial_coeffcient)
+
+        xr = xr - (n) / (s1 - np.sqrt((n-1)*(n*s2-s1**2)))
+
+    return xr
+\end{mintedbox}
+
+\section{Durand Kernerjev algoritem}
+
+\begin{mintedbox}{python}
+    polynomial_coeffcient = np.polynomial.polynomial.polyfromroots([-3,-8,-2,-1,2,4])
+
+
+polynomial = np.poly1d(np.flip(polynomial_coeffcient)) #ustvari polinom
+
+
+def durand(eps, approx):
+
+    for n in range(0, 30):
+        approx_cop = approx.copy()
+        for i, x in enumerate(approx):
+            if abs(polynomial(x)) < eps: 
+                if(itearations_ap[i] == None):
+                    itearations_ap[i] = n
+                continue
+
+            d = 1
+
+            for k in approx_cop:
+                if(k != x):
+                    d = d * (x - k)
+
+            approx[i] = x - (polynomial(x))/d
 \end{mintedbox}

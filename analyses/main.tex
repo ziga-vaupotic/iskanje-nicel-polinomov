@@ -15,6 +15,11 @@
 
 \tcbuselibrary{minted,breakable,xparse,skins}
  \renewcommand\bibname{Viri in literatura}
+
+\addto\captionsslovene{
+  \renewcommand{\listfigurename}{Kazalo slik}%
+}
+
   
 \renewenvironment{abstract}
  {\par\noindent \hfill \textbf{Izvleček}  \hfill\ \ignorespaces \\}
@@ -112,7 +117,7 @@
    \begin{center}
         \large {GIMNAZIJA JOŽETA PLEČNIKA LJUBLJANA} \\
         \vspace{1 cm}
-       \includegraphics[width=0.4\textwidth]{../img/logo.png}
+       \includegraphics[width=0.4\textwidth]{img/logo.png}
             
        \vspace{3cm}
        \textbf{\Large ISKANJE NIČEL POLINOMA}\\
@@ -129,13 +134,15 @@
 \end{titlepage}
 \begin{abstract}
 \\\\
-V seminarski nalogi analiziramo različne algoritme za iskanje ničel polinomov in njihovo uporabo v računalništvu ter informatiki. Obravnavanih je nekaj glavnih algoritmov v $\R$ in $\R^n$ prostorih. Algoritmi so ovrednoteni na podlagi njihove konvergence in časovne zahtevnosti. Pokažemo tudi nekaj primerov, kjer je izbira posameznega predstavljenega algoritma ključna. Proti koncu naloge se srečamo z problemi v informatiki in računalništvu, ki neposredno uporabljajo analizirane algoritme. 
+V seminarski nalogi analiziramo različne algoritme za iskanje ničel polinomov in njihovo uporabo v računalništvu ter informatiki. Obravnavanih je nekaj glavnih algoritmov v $\R$ in $\R^n$ prostorih. Algoritmi so ovrednoteni na podlagi njihove konvergence in časovne zahtevnosti. Pokažemo tudi nekaj primerov, kjer je izbira posameznega predstavljenega algoritma ključna. Proti koncu naloge se srečamo z problemi v informatiki in računalništvu, ki neposredno uporabljajo analizirane algoritme.
 \\\\
     \small{\textbf{Ključne besede: }iskanje ničel polinomov, iskanje ničel, optimizacijske metode}
 \end{abstract}
 
 \newpage
 \tableofcontents
+\newpage
+\listoffigures
 \newpage
 \input{uvod}
 \newpage

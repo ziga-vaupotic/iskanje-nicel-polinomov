@@ -1,14 +1,14 @@
 \chapter{Algoritmi v $\R^n$}
 Do sedaj smo omenili le algoritme, ki iščejo ničle funkciji z 1 spremenljivko. Pogosteje pa se znajdemo pri problemih funkciji, ki so odvisne od več spremenljivk. Algoritmi za iskanje ničel funkciji več spremenljiv so še posebej pomembni v optimizacijskih problemih, kjer moram ponavadi minimizirat funkcijo na katero vpliva več faktorjev. Naj bo $p: \R^n \to \R$ polinom. Predpis polinoma je
 \begin{align}
-    p(x_1, x_2, x_3, ..., x_n) = \sum_{h = 0}^{x_1_{s}} \alpha_{1,h} x_1^h + \sum_{h = 0}^{x_2_{s}} \alpha_{2,h} x_2^h + ... + \sum_{h = 0}^{x_n_{s}} \alpha_{n,h} x_n^h = \sum_{\ell = 1}^n\sum_{h=0}^{x_{\ell}_s} \alpha_{\ell, h} x_\ell^h
+    p(x_1, x_2, x_3, ..., x_n) = \sum_{h = 0}^{x_1_{s}} \alpha_{1,h} x_1^h + \sum_{h = 0}^{x_2_{s}} \alpha_{2,h} x_2^h + ... \sum_{h = 0}^{x_n_{s}} \alpha_{n,h} x_n^h = \sum_{\ell = 1}^n\sum_{h=0}^{x_{\ell}_s} \alpha_{\ell, h} x_\ell^h
 \end{align}
 
 Obstaja le peščica algoritmov, ki lahko izračunajo ničle tovrstnih funkciji. Računalniško gledano se največkrat uporablja posplošitev bisekcije. Namesto na interval se sedaj osredotočamo na regijo v prostoru. Algoritma je le posplošitev že izpeljanega algoritma, zato ga ne bomo izpeljali še enkrat. Namesto mej intervala sedaj izberemo mejne točke, ki predstavljajo regijo, tako da ima na mejnih točka funkcija nasprotna si predznaka, nato regijo manjšamo po vseh prostorskih spremenljivkah. Obstaja tudi algoritem, ki je posledica Poincare-Mirandovega izreka \cite{Kulpa1997}, vendar je algoritem zapleten.
 
-V optimizacijskih problemih se več ne išče ničel funkcije odvoda, temveč operatorjev, ki delujejo na funkcijo. Najbolj znana je Newtonov algoritem konjugiranega gradianta, ki ga bomo kot edinega predstavili. Obstajajo pa seveda bolj kompleksni algoritmi kot so konjugirana vektorska metoda, Broyden–Fletcher–Goldfarb–Shanno algoritem,Nelder-Mead simpleks,... 
+V optimizacijskih problemih se več ne išče ničel funkcije odvoda, temveč operatorjev, ki delujejo na funkcijo. Najbolj znana je Newtonov algoritem konjugiranega gradienta, ki ga bomo kot edinega predstavili. Obstajajo pa seveda bolj kompleksni algoritmi kot so konjugirana vektorska metoda, Broyden–Fletcher–Goldfarb–Shanno algoritem,Nelder-Mead simpleks,... 
 
-\subsection{Newtonova metoda konjugiranega gradienta}
+\section{Newtonova metoda konjugiranega gradienta}
 Za poljubno funkcijo $f: \R^n \to \R$ velja, da jo lahko zapišem z Taylorjevo vrsto, kot kvadratno aproksimacijo
 \begin{align}
     f(\Vec{x} - \Vec{a}) \approx f(\Vec{a})  + (Jf)(a)(\Vec{x} - \Vec{a}) +  \frac{1}{2} (\Vec{x} - \Vec{a})^T (Hf)(\Vec{a}) (\Vec{x} - \Vec{a})
@@ -23,3 +23,5 @@ Sedaj primerjamo to z 0, da dobimo lokalni minimum (naj bo zamik $a=\Vec{0}$)
 \end{align}
 $(Hf)(\vec{x}) = -f(\vec{x})$ je sedaj linearni problem, ki ga rešimo z algoritmom za reševanje sistema linearnih enačb.
 \textbf{Ta metoda je izredno pomembna v strojnem učenju!}
+
+\todo[color=blue, inline]{Dodaj sliko in izpeljavo}
